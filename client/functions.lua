@@ -43,6 +43,9 @@ UpdateSkill = function(skill, amount)
         elseif Config.NotifyType == "okok" then
             exports['okokNotify']:Alert("SKILL GAINED", "+" .. amount .. " XP to " .. skill, 3500, 'info')
         end
+	elseif Config.NotifyType == "ox_lib" then
+	    lib.notify({title = 'SKILL GAINED', description = "+" .. amount .. " XP to " .. skill, type = 'inform'})
+        end
     end
 	TriggerServerEvent("skillsystem:update", json.encode(Config.Skills))
 end
